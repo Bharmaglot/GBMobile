@@ -3,6 +3,7 @@ using Game.InputLogic;
 using Game.TapeBackground;
 using Profile;
 using Tool;
+using UnityEngine.Analytics;
 
 namespace Game
 {
@@ -10,6 +11,8 @@ namespace Game
     {
         public GameController(ProfilePlayer profilePlayer)
         {
+
+
             var leftMoveDiff = new SubscriptionProperty<float>();
             var rightMoveDiff = new SubscriptionProperty<float>();
 
@@ -21,6 +24,9 @@ namespace Game
 
             var carController = new CarController();
             AddController(carController);
+
+            //Не используя менеджер
+            Analytics.CustomEvent("MainMenuOpened - messageFromGameControllerNoManager");
         }
     }
 }

@@ -2,7 +2,8 @@ using Profile;
 using UnityEngine;
 using Services.IAP;
 using Services.Analytics;
-using Services.Ads.UnityAds;
+using UnityEngine.Analytics;
+//using Services.Ads.UnityAds;
 
 internal class EntryPoint : MonoBehaviour
 {
@@ -11,7 +12,7 @@ internal class EntryPoint : MonoBehaviour
 
     [SerializeField] private Transform _placeForUi;
     [SerializeField] private IAPService _iapService;
-    [SerializeField] private UnityAdsService _adsService;
+   // [SerializeField] private UnityAdsService _adsService;
     [SerializeField] private AnalyticsManager _analytics;
 
     private MainController _mainController;
@@ -22,10 +23,12 @@ internal class EntryPoint : MonoBehaviour
         var profilePlayer = new ProfilePlayer(SpeedCar, InitialState);
         _mainController = new MainController(_placeForUi, profilePlayer);
 
+        Analytics.CustomEvent("MainMenuOpened - messageFromStartEntryPoint");
+
         _analytics.SendMainMenuOpened();
 
-        if (_adsService.IsInitialized) OnAdsInitialized();
-        else _adsService.Initialized.AddListener(OnAdsInitialized);
+     //   if (_adsService.IsInitialized) OnAdsInitialized();
+     //   else _adsService.Initialized.AddListener(OnAdsInitialized);
 
         if (_iapService.IsInitialized) OnIapInitialized();
         else _iapService.Initialized.AddListener(OnIapInitialized);
@@ -33,12 +36,12 @@ internal class EntryPoint : MonoBehaviour
 
     private void OnDestroy()
     {
-        _adsService.Initialized.RemoveListener(OnAdsInitialized);
+   //     _adsService.Initialized.RemoveListener(OnAdsInitialized);
         _iapService.Initialized.RemoveListener(OnIapInitialized);
         _mainController.Dispose();
     }
 
 
-    private void OnAdsInitialized() => _adsService.InterstitialPlayer.Play();
+  //  private void OnAdsInitialized() => _adsService.InterstitialPlayer.Play();
     private void OnIapInitialized() => _iapService.Buy("product_1");
 }

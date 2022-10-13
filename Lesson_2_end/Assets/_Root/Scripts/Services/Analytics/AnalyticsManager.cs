@@ -18,6 +18,9 @@ namespace Services.Analytics
         public void SendMainMenuOpened() =>
             SendEvent("MainMenuOpened");
 
+        public void SendGameOpened() =>
+            SendEvent("GameOpened");
+
 
         private void SendEvent(string eventName)
         {
