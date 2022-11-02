@@ -11,6 +11,7 @@ namespace Tween
         public static string AnimationTypeName => nameof(_animationButtonType);
         public static string CurveEaseName => nameof(_curveEase);
         public static string DurationName => nameof(_duration);
+        public static string ButtonEndSizeName => nameof(_buttonEndSize);
 
         [SerializeField] private RectTransform _rectTransform;
 
@@ -18,7 +19,7 @@ namespace Tween
         [SerializeField] private Ease _curveEase = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
-
+        [SerializeField] private float _buttonEndSize = 0.5f;
 
         protected override void Awake()
         {
@@ -42,6 +43,7 @@ namespace Tween
             ActivateAnimation();
         }
 
+        [ContextMenu(nameof(ActivateAnimation))]
         private void ActivateAnimation()
         {
             switch (_animationButtonType)
@@ -53,7 +55,17 @@ namespace Tween
                 case AnimationButtonType.ChangePosition:
                     _rectTransform.DOShakeAnchorPos(_duration, Vector2.one * _strength).SetEase(_curveEase);
                     break;
+
+                case AnimationButtonType.ChangeSize:
+                    _rectTransform.DOScale(_buttonEndSize, _duration).SetEase(_curveEase);
+                    break;
             }
+        }
+
+        [ContextMenu(nameof(StopAnimation))]
+        private void StopAnimation()
+        {
+            DOTween.Kill(_rectTransform);
         }
     }
 }

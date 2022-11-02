@@ -200,7 +200,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1154,10 +1154,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _rectTransform: {fileID: 1282234481}
-  _animationButtonType: 0
+  _animationButtonType: 2
   _curveEase: 1
   _duration: 0.6
   _strength: 30
+  _buttonEndSize: 0.5
 --- !u!1 &1288215147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1782,7 @@ MonoBehaviour:
   _curveEase: 1
   _duration: 0.6
   _strength: 30
+  _buttonEndSize: 0.5
 --- !u!1 &1628213505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,10 +1912,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 1803062608}
   _rectTransform: {fileID: 1803062607}
-  _animationButtonType: 1
+  _animationButtonType: 3
   _curveEase: 1
   _duration: 0.6
   _strength: 30
+  _buttonEndSize: 10
 --- !u!1 &1913927132
 GameObject:
   m_ObjectHideFlags: 0

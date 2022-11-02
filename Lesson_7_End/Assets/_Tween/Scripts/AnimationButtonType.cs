@@ -4,6 +4,7 @@ namespace Tween
     {
         None,
         ChangeRotation,
-        ChangePosition
+        ChangePosition,
+        ChangeSize
     }
 }
