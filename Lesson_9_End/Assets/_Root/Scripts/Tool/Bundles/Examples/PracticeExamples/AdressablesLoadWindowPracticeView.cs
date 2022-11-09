@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Tool.Bundles.Examples
 {
-    internal class AdressablesLoadWindowPracticeView : AssetBundleViewBase
+    internal class AdressablesLoadWindowPracticeView : MonoBehaviour
     {
         [Header("Asset Reference")]
         [SerializeField] private AssetReference _canvasBackground;
